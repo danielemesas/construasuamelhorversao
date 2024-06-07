@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Nome - Site Pessoal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-color: #005f73;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #0a9396;
+            padding: 10px;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 20px;
+        }
+        footer {
+            background-color: #005f73;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .gallery img {
+            width: 100%;
+            max-width: 300px;
+            margin: 10px;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-form input, .contact-form textarea {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 1em;
+        }
+        .contact-form button {
+            padding: 10px;
+            background-color: #0a9396;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background-color: #005f73;
+        }
+        .message-of-the-day {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .test-section input[type="radio"] {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Seu Nome</h1>
+    </header>
+    <nav>
+        <a href="#about">Sobre Mim</a>
+        <a href="#mission">Missão e Valores</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#message">Mensagem do Dia</a>
+        <a href="#test">Teste de Autoconhecimento</a>
+        <a href="#contact">Contato</a>
+    </nav>
+    <section id="about">
+        <h2>Sobre Mim</h2>
+        <p>Conte um pouco sobre você aqui.</p>
+    </section>
+    <section id="mission">
+        <h2>Missão e Valores</h2>
+        <p>Descreva sua missão e valores aqui.</p>
+    </section>
+    <section id="portfolio">
+        <h2>Portfólio</h2>
+        <div class="gallery">
+            <img src="imagem1.jpg" alt="Imagem 1">
+            <img src="imagem2.jpg" alt="Imagem 2">
+            <img src="imagem3.jpg" alt="Imagem 3">
+        </div>
+    </section>
+    <section id="message">
+        <h2>Mensagem do Dia</h2>
+        <p class="message-of-the-day">"Sua mensagem inspiradora do dia aqui."</p>
+    </section>
+    <section id="test">
+        <h2>Teste de Autoconhecimento</h2>
+        <form class="test-section">
+            <p>Questão 1: Você se considera uma pessoa otimista?</p>
+            <label><input type="radio" name="question1" value="yes"> Sim</label>
+            <label><input type="radio" name="question1" value="no"> Não</label>
+            <br>
+            <p>Questão 2: Você costuma definir metas claras para o futuro?</p>
+            <label><input type="radio" name="question2" value="yes"> Sim</label>
+            <label><input type="radio" name="question2" value="no"> Não</label>
+            <br>
+            <button type="button" onclick="calculateResult()">Enviar</button>
+        </form>
+        <p id="test-result"></p>
+    </section>
+    <section id="contact">
+        <h2>Contato</h2>
+        <form class="contact-form">
+            <input type="text" name="name" placeholder="Seu nome" required>
+            <input type="email" name="email" placeholder="Seu email" required>
+            <textarea name="message" placeholder="Sua mensagem" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+    <footer>
+        <p>Conecte-se comigo nas redes sociais!</p>
+        <a href="https://www.instagram.com" target="_blank">Instagram</a> |
+        <a href="https://www.tiktok.com" target="_blank">TikTok</a> |
+        <a href="https://www.facebook.com" target="_blank">Facebook</a> |
+        <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+    </footer>
+    <script>
+        function calculateResult() {
+            let result = "Resultado do Teste: ";
+            let q1 = document.querySelector('input[name="question1"]:checked');
+            let q2 = document.querySelector('input[name="question2"]:checked');
+            if (q1 && q2) {
+                if (q1.value === 'yes' && q2.value === 'yes') {
+                    result += "Você tem uma boa visão de si mesmo e do futuro.";
+                } else if (q1.value === 'yes' || q2.value === 'yes') {
+                    result += "Você está no caminho certo, continue assim!";
+                } else {
+                    result += "Você pode se beneficiar de refletir mais sobre suas metas e atitudes.";
+                }
+            } else {
+                result += "Por favor, responda todas as perguntas.";
+            }
+            document.getElementById('test-result').innerText = result;
+        }
+    </script>
+</body>
+</html>
